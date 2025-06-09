@@ -1,4 +1,3 @@
-# desafios-django-semana-1
 ## Rutas-implementadas-semana-2
 1. `/`  
    - Tipo: Fija  
