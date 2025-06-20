@@ -1,0 +1,64 @@
+{% extends "mi_web/base.html" %}
+
+{% block title %}Curriculum Vitae{% endblock %}
+
+{% block content %}
+<div style="background:rgba(156, 25, 53, 0.39); border-radius: 10px; padding: 2em; max-width: 600px; margin: auto; box-shadow: 0 0 10px #ccc;">
+    <h2 style="color:rgb(134, 15, 99); text-align:center;">Curriculum Vitae</h2>
+    <div style="text-align:center;">
+        <img src="https://i.pinimg.com/736x/c6/71/d6/c671d63466c1ccf09282ad7e2533cf8b.jpg" alt="Foto de perfil" width="150" style="border-radius: 50%; margin-bottom: 1em;">
+    </div>
+    <p><strong>Nombre:</strong> Javiera Muñoz</p>
+    <p><strong>Email:</strong> javii56munoz@gmail.com</p>
+    <p><strong>Teléfono:</strong> +56974138312</p>
+    <hr>
+    <h3>Experiencia Laboral</h3>
+    <ul>
+        <li><strong>Proyecto Personal</strong> - Desarrollo de sitios web básicos (2025)</li>
+    </ul>
+    <h3>Educación</h3>
+    <ul>
+        <li>Estudiante de tecnico en informatica - Universidad catolica de temuco</li>
+    </ul>
+    <h3>Habilidades</h3>
+    <ul>
+        <li>HTML, CSS, Python</li>
+        <li>Trabajo en equipo</li>
+        <li>Comunicación efectiva</li>
+    </ul>
+    <h3>Idiomas</h3>
+    <ul>
+        <li>Español (nativo)</li>
+        <li>Inglés (básico)</li>
+    </ul>
+    <hr>
+    {% if mensaje %}
+    <div style="background:#c8e6c9; color:#256029; padding:1em; border-radius:8px; margin-bottom:1em;">
+        {{ mensaje }}
+    </div>
+{% endif %}
+<h3>Por favor, contesta esta breve encuesta</h3>
+<form method="post" style="background:#e0f7fa; padding:1em; border-radius:8px;">
+    {% csrf_token %}
+    <label for="encuesta_email"><strong>Email:</strong></label><br>
+    <input type="email" id="encuesta_email" name="encuesta_email" required style="width:100%; margin-bottom:1em;"><br>
+
+    <strong>¿Deseas recibir correos?</strong><br>
+    <input type="radio" id="si" name="recibir_correos" value="si" required>
+    <label for="si">Sí, por favor envíame correos</label><br>
+    <input type="radio" id="no" name="recibir_correos" value="no">
+    <label for="no">No por favor, no me mandes ningún correo</label><br><br>
+
+    <label for="como_supo"><strong>¿Cómo supiste de nosotros?</strong></label><br>
+    <select id="como_supo" name="como_supo" required style="width:100%; margin-bottom:1em;">
+        <option value="">Selecciona una opción</option>
+        <option value="facebook">Facebook</option>
+        <option value="periodico">El periódico</option>
+        <option value="contacto">Un contacto</option>
+    </select><br>
+
+    <button type="submit" style="background:#00838f; color:white; border:none; padding:0.5em 2em; border-radius:5px;">Enviar</button>
+</form>
+</div>
+{% endblock %}
+
